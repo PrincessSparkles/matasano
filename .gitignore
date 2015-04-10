@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# intermediate files from monodevelop
+*/bin/*
