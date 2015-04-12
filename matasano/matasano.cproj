@@ -22,7 +22,9 @@
     <SourceDirectory>.</SourceDirectory>
     <WarningLevel>All</WarningLevel>
     <WarningsAsErrors>true</WarningsAsErrors>
-    <ExtraCompilerArguments>-g</ExtraCompilerArguments>
+    <ExtraCompilerArguments>-g
+-std=c++11
+</ExtraCompilerArguments>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
@@ -35,5 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="main.cpp" />
+    <Compile Include="HexEncoder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TextEncoder.h" />
+    <None Include="HexEncoder.h" />
   </ItemGroup>
 </Project>
