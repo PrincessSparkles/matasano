@@ -1,9 +1,21 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="matasano/main.cpp">
+  <MonoDevelop.Ide.Workbench ActiveDocument="matasano/HexEncoder.cpp">
     <Files>
-      <File FileName="matasano/main.cpp" Line="11" Column="1" />
+      <File FileName="matasano/HexEncoder.h" Line="22" Column="26" />
+      <File FileName="matasano/TextEncoder.h" Line="1" Column="1" />
+      <File FileName="matasano/main.cpp" Line="24" Column="3" />
+      <File FileName="matasano/HexEncoder.cpp" Line="57" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="matasano" expanded="True">
+            <Node name="HexEncoder.cpp" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
