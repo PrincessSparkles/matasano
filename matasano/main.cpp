@@ -18,10 +18,11 @@ int main (int argc, char *argv[])
 {
 	cout << "matasano" << endl;
 	
-	if (Test())
+	if (Test() == false)
 	{
 		return -1;
 	}
+	cout << "All tests pass" << endl;
 	
 	return 0;
 }

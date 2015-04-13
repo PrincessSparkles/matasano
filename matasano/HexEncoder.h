@@ -52,6 +52,7 @@ public:
 protected:
 
 private:
+	static unsigned char decodeHexChar(char hex);
 };
 
 /* ************************************************************************ */
