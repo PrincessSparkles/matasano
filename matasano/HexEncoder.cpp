@@ -9,6 +9,7 @@
 /* ************************************************************************ */
 
 #include <iostream>
+#include <memory>
 
 #include "HexEncoder.h"
 
@@ -102,6 +103,7 @@ std::string HexEncoder::Encode(const std::vector<unsigned char> &data)
 
 bool HexEncoderTest(const std::vector<unsigned char> &data, const std::string &encoded)
 {
+	// test the static interface
 	std::string resultString = HexEncoder::Encode(data);
 	if (resultString != encoded)
 	{
@@ -129,6 +131,20 @@ bool HexEncoderTest(const std::vector<unsigned char> &data, const std::string &e
 		throw "HexEncoder::Decode failed";
 	}
 	
+	// now make sure the object interface works as well
+	auto encoder = std::make_unique<HexEncoder>();
+	std::string resultString2 = encoder->encode(data);
+	if (resultString != encoded)
+	{
+		throw "TextEncoder::encode failed";
+	}
+	
+	std::vector<unsigned char> resultData2 = encoder->decode(encoded);
+	if (resultData2 != data)
+	{
+		throw "TextEncoder::decode failed";
+	}
+	
 	return true;
 }
 
@@ -144,7 +160,7 @@ bool HexEncoderDecodeExceptionTest(const std::string &bad_string)
 	}
 	catch (const char *msg)
 	{
-		caught = true;
+		caught = true;	// we're expecting an exception here
 	}
 	
 	if (caught == false)

@@ -1,12 +1,18 @@
 #include <iostream>
 
 #include "HexEncoder.h"
+#include "Base64Encoder.h"
 
 using namespace std;
 
 bool Test()
 {
 	if (HexEncoderTest() == false)
+	{
+		return false;
+	}
+	
+	if (Base64EncoderTest() == false)
 	{
 		return false;
 	}
