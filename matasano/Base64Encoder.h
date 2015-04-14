@@ -52,6 +52,14 @@ public:
 protected:
 
 private:
+	/* the base64 character set */
+	static const char *base64Characters;
+	
+	/*
+	 * given a character 'c', return its index in the base64Characters set (or throw)
+	 * '=' returns a value of zero (as it makes the decode code cleaner)
+	 */
+	static int decodeBase64Character(char c);
 };
 
 /* ************************************************************************ */

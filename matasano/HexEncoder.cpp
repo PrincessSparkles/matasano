@@ -136,13 +136,13 @@ bool HexEncoderTest(const std::vector<unsigned char> &data, const std::string &e
 	std::string resultString2 = encoder->encode(data);
 	if (resultString != encoded)
 	{
-		throw "TextEncoder::encode failed";
+		throw "HexEncoder::encode failed";
 	}
 	
 	std::vector<unsigned char> resultData2 = encoder->decode(encoded);
 	if (resultData2 != data)
 	{
-		throw "TextEncoder::decode failed";
+		throw "HexEncoder::decode failed";
 	}
 	
 	return true;
