@@ -22,6 +22,12 @@
 std::vector<unsigned char> XOR::Xor(const std::vector<unsigned char> &data, const std::vector<unsigned char> &key)
 {
 	int keylen = key.size();
+	
+	if (keylen == 0)
+	{
+		throw "[XOR::Xor] zero-length key";
+	}
+	
 	int keyidx = 0;
 	
 	std::vector<unsigned char> result;
@@ -73,10 +79,19 @@ bool XorTest()
 		std::cout << "[XOR] Bad result from XOR::Xor" << std::endl;
 		return false;
 	}
-	else
+	
+	try
 	{
-		return true;
+		result = XOR::Xor(data, HexEncoder::Decode(""));
+		std::cout << "[XOR] failed to throw on zero length key" << std::endl;
+		return false;		
 	}
+	catch (const char *msg)
+	{
+		// we caught the expected exception - this is good :-)
+	}
+	
+	return true;
 }
 
 /* ************************************************************************ */
