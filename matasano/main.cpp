@@ -2,6 +2,7 @@
 
 #include "HexEncoder.h"
 #include "Base64Encoder.h"
+#include "XOR.h"
 
 using namespace std;
 
@@ -13,6 +14,11 @@ bool Test()
 	}
 	
 	if (Base64EncoderTest() == false)
+	{
+		return false;
+	}
+	
+	if (XorTest() == false)
 	{
 		return false;
 	}
@@ -40,6 +46,27 @@ bool Set1Challenge1()
 	}
 }
 
+bool Set1Challenge2()
+{
+	std::vector<unsigned char> data = HexEncoder::Decode("1c0111001f010100061a024b53535009181c");
+	std::vector<unsigned char> key = HexEncoder::Decode("686974207468652062756c6c277320657965");
+	std::vector<unsigned char> expected = HexEncoder::Decode("746865206b696420646f6e277420706c6179");
+	
+	std::vector<unsigned char> result = XOR::Xor(data, key);
+	
+	if (result == expected)
+	{
+		cout << "[set1] challenge 2 passed" << endl;
+		return true;
+	}
+	else
+	{
+		cout << "[set1] challenge 2 failed" << endl;
+		return false;
+	}
+}
+
+
 int main (int argc, char *argv[])
 {
 	cout << "matasano" << endl;
@@ -53,6 +80,11 @@ int main (int argc, char *argv[])
 	do
 	{
 		if (Set1Challenge1() == false)
+		{
+			break;
+		}
+		
+		if (Set1Challenge2() == false)
 		{
 			break;
 		}

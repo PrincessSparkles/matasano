@@ -34,16 +34,18 @@
     <OptimizationLevel>3</OptimizationLevel>
     <DefineSymbols>MONODEVELOP</DefineSymbols>
     <SourceDirectory>.</SourceDirectory>
-    <ExtraCompilerArguments>-std=c++11</ExtraCompilerArguments>
+    <ExtraCompilerArguments>-std=c++14</ExtraCompilerArguments>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="main.cpp" />
     <Compile Include="HexEncoder.cpp" />
     <Compile Include="Base64Encoder.cpp" />
+    <Compile Include="XOR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TextEncoder.h" />
     <None Include="HexEncoder.h" />
     <None Include="Base64Encoder.h" />
+    <None Include="XOR.h" />
   </ItemGroup>
 </Project>
